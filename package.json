@@ -1,0 +1,27 @@
+{
+  "name": "smart-blind-shoes-web",
+  "version": "1.0.0",
+  "description": "Web dashboard for Smart Blind Shoes - AI-Powered Navigation System",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000",
+    "dev": "npx http-server -p 8000 -o"
+  },
+  "keywords": [
+    "assistive-technology",
+    "arduino",
+    "web-dashboard",
+    "visual-impairment",
+    "navigation"
+  ],
+  "author": "Smart Blind Shoes Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/smart-blind-shoes.git"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
+

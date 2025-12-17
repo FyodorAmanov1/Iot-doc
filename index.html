@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Blind Shoes - AI-Powered Navigation System for Visually Impaired">
+    <title>Smart Blind Shoes | Intelligent Navigation System</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#007AFF"/>
+                        <path d="M16 8L20 14H24L18 20L20 26L16 22L12 26L14 20L8 14H12L16 8Z" fill="white"/>
+                    </svg>
+                    <span>Smart Shoes</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="https://github.com/yourusername/smart-blind-shoes" target="_blank" class="btn-secondary">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Blind Shoes</h1>
+                <p class="hero-subtitle">AI-Powered Navigation System for Independent Mobility</p>
+                <p class="hero-description">Revolutionary footwear technology that empowers visually impaired individuals to navigate safely and confidently through real-time obstacle detection and haptic feedback.</p>
+                <div class="hero-actions">
+                    <a href="https://wokwi.com/projects/449468602181139457" target="_blank" class="btn-primary">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        Start Live Demo
+                    </a>
+                    <button class="btn-outline" onclick="scrollToSection('demo')">View Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Overview</h2>
+                <p class="section-subtitle">Transforming mobility for the visually impaired community</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="#007AFF" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="8" fill="#007AFF"/>
+                        </svg>
+                    </div>
+                    <h3>Problem Statement</h3>
+                    <p>Over 285 million people worldwide are visually impaired. Traditional navigation aids like white canes have limitations - they only detect obstacles at ground level and require constant manual operation. Our Smart Blind Shoes provide hands-free, comprehensive obstacle detection.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="16" width="32" height="24" rx="2" fill="#FF9500" opacity="0.2"/>
+                            <path d="M20 24L24 28L32 20" stroke="#FF9500" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="24" cy="12" r="4" fill="#FF9500"/>
+                        </svg>
+                    </div>
+                    <h3>Solution</h3>
+                    <p>An intelligent footwear system with ultrasonic sensors, haptic feedback, and real-time web monitoring. The shoes detect obstacles in all directions and provide intuitive vibration patterns to guide users safely.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="#34C759" stroke-width="2"/>
+                            <path d="M16 24L22 30L32 18" stroke="#34C759" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Key Benefits</h3>
+                    <ul>
+                        <li>Hands-free navigation</li>
+                        <li>360° obstacle detection</li>
+                        <li>Real-time monitoring via web dashboard</li>
+                        <li>Emergency alert system</li>
+                        <li>Step counting and distance tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Workflow -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>System Workflow</h2>
+                <p class="section-subtitle">How data flows from sensors to web interface</p>
+            </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h4>Sensor Data Collection</h4>
+                    <p>Ultrasonic sensors continuously scan the environment (left, center, right, downward)</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h4>Data Processing</h4>
+                    <p>Arduino processes sensor readings, applies filtering algorithms, and determines obstacle zones</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h4>Haptic Feedback</h4>
+                    <p>Vibration motors provide directional feedback based on obstacle location and proximity</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <h4>Web Dashboard</h4>
+                    <p>Real-time data visualization, GPS tracking, and system monitoring via web interface</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Dashboard -->
+    <section id="demo" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Dashboard</h2>
+                <p class="section-subtitle">Real-time monitoring and data visualization</p>
+            </div>
+            <div class="dashboard">
+                <!-- Status Cards -->
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">System Status</div>
+                        <div class="stat-value" id="systemStatus">Active</div>
+                        <div class="stat-indicator active"></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Steps Taken</div>
+                        <div class="stat-value" id="stepCount">0</div>
+                        <div class="stat-change">+12 today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Battery Level</div>
+                        <div class="stat-value" id="batteryLevel">100%</div>
+                        <div class="battery-bar">
+                            <div class="battery-fill" id="batteryFill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Walking Speed</div>
+                        <div class="stat-value" id="walkingSpeed">0.0</div>
+                        <div class="stat-unit">km/h</div>
+                    </div>
+                </div>
+
+                <!-- Sensor Visualization -->
+                <div class="sensor-panel">
+                    <div class="panel-header">
+                        <h3>Obstacle Detection</h3>
+                        <div class="scenario-indicator" id="scenarioIndicator">
+                            <span class="scenario-label">Current Scenario:</span>
+                            <span class="scenario-name" id="scenarioName">Walking in Hallway</span>
+                        </div>
+                    </div>
+                    <div class="sensor-grid">
+                        <div class="sensor-card" id="sensorLeft">
+                            <div class="sensor-label">Left</div>
+                            <div class="sensor-distance" id="distanceLeft">--</div>
+                            <div class="sensor-unit">cm</div>
+                            <div class="sensor-zone" id="zoneLeft">CLEAR</div>
+                        </div>
+                        <div class="sensor-card active" id="sensorCenter">
+                            <div class="sensor-label">Front</div>
+                            <div class="sensor-distance" id="distanceCenter">--</div>
+                            <div class="sensor-unit">cm</div>
+                            <div class="sensor-zone" id="zoneCenter">CLEAR</div>
+                        </div>
+                        <div class="sensor-card" id="sensorRight">
+                            <div class="sensor-label">Right</div>
+                            <div class="sensor-distance" id="distanceRight">--</div>
+                            <div class="sensor-unit">cm</div>
+                            <div class="sensor-zone" id="zoneRight">CLEAR</div>
+                        </div>
+                        <div class="sensor-card" id="sensorDown">
+                            <div class="sensor-label">Down</div>
+                            <div class="sensor-distance" id="distanceDown">--</div>
+                            <div class="sensor-unit">cm</div>
+                            <div class="sensor-zone" id="zoneDown">CLEAR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h4>Distance Over Time</h4>
+                        <canvas id="distanceChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h4>GPS Location</h4>
+                        <div class="gps-display">
+                            <div class="gps-coord">
+                                <span>Latitude:</span>
+                                <span id="gpsLat">37.5514°</span>
+                            </div>
+                            <div class="gps-coord">
+                                <span>Longitude:</span>
+                                <span id="gpsLng">127.0748°</span>
+                            </div>
+                        </div>
+                        <div class="map-placeholder">
+                            <p>📍 Interactive Map View</p>
+                            <small>GPS coordinates updated in real-time</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <h3>System Controls</h3>
+                    <div class="controls-grid">
+                        <div class="control-item">
+                            <label>Operation Mode</label>
+                            <select id="operationMode" class="control-select">
+                                <option value="0">Normal</option>
+                                <option value="1">Sensitive</option>
+                                <option value="2">Aggressive</option>
+                            </select>
+                        </div>
+                        <div class="control-item">
+                            <label>Sensitivity</label>
+                            <input type="range" id="sensitivity" min="0" max="100" value="50" class="control-slider">
+                            <span id="sensitivityValue">50%</span>
+                        </div>
+                        <div class="control-item">
+                            <button class="btn-emergency" id="emergencyBtn">Emergency Alert</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p class="section-subtitle">Advanced technology for safe navigation</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="8" y="12" width="24" height="16" rx="2" stroke="#007AFF" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="6" fill="#007AFF" opacity="0.2"/>
+                            <circle cx="20" cy="20" r="2" fill="#007AFF"/>
+                        </svg>
+                    </div>
+                    <h3>Multi-Directional Sensors</h3>
+                    <p>Four ultrasonic sensors provide comprehensive 360° obstacle detection</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="12" fill="#34C759" opacity="0.2"/>
+                            <circle cx="20" cy="20" r="8" fill="#34C759" opacity="0.4"/>
+                            <circle cx="20" cy="20" r="4" fill="#34C759"/>
+                        </svg>
+                    </div>
+                    <h3>Haptic Feedback</h3>
+                    <p>Directional vibration patterns guide users around obstacles intuitively</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" stroke="#5856D6" stroke-width="2"/>
+                            <circle cx="20" cy="20" r="8" fill="#5856D6" opacity="0.2"/>
+                            <path d="M20 12L20 20L26 20" stroke="#5856D6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Real-Time Monitoring</h3>
+                    <p>Web dashboard provides live data visualization and system status</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="16" fill="#FF3B30" opacity="0.2"/>
+                            <path d="M20 8L20 20M20 20L28 28M20 20L12 28" stroke="#FF3B30" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Emergency System</h3>
+                    <p>Quick-access emergency button with GPS location sharing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="8" y="8" width="24" height="24" rx="2" stroke="#FF9500" stroke-width="2"/>
+                            <rect x="12" y="12" width="4" height="4" fill="#FF9500"/>
+                            <rect x="18" y="12" width="4" height="4" fill="#FF9500"/>
+                            <rect x="24" y="12" width="4" height="4" fill="#FF9500"/>
+                            <rect x="12" y="18" width="16" height="2" fill="#FF9500"/>
+                            <rect x="12" y="22" width="12" height="2" fill="#FF9500"/>
+                        </svg>
+                    </div>
+                    <h3>Activity Tracking</h3>
+                    <p>Step counting, distance traveled, and walking speed metrics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="10" y="8" width="20" height="28" rx="2" stroke="#34C759" stroke-width="2"/>
+                            <rect x="12" y="10" width="16" height="22" rx="1" fill="#34C759" opacity="0.3"/>
+                            <rect x="14" y="12" width="12" height="18" fill="#34C759"/>
+                            <rect x="28" y="14" width="2" height="4" rx="1" fill="#34C759"/>
+                        </svg>
+                    </div>
+                    <h3>Battery Monitoring</h3>
+                    <p>Real-time battery level tracking with low-battery warnings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Team Members</h2>
+                <p class="section-subtitle">Meet the developers behind Smart Blind Shoes</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">UM</div>
+                    <h3><a href="portfolio.html" class="team-link">Usmonov Mahmudkhon</a></h3>
+                    <p class="team-role">Hardware & Firmware</p>
+                    <p class="team-responsibility">Arduino programming, sensor integration, haptic feedback system</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">TM</div>
+                    <h3>Team Member 2</h3>
+                    <p class="team-role">Web Development</p>
+                    <p class="team-responsibility">Frontend design, real-time data visualization, API integration</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">TM</div>
+                    <h3>Team Member 3</h3>
+                    <p class="team-role">Backend & Infrastructure</p>
+                    <p class="team-responsibility">Server setup, data processing, deployment</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">TM</div>
+                    <h3>Team Member 4</h3>
+                    <p class="team-role">Testing & Documentation</p>
+                    <p class="team-responsibility">System testing, user documentation, presentation materials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Smart Blind Shoes</h4>
+                    <p>Empowering independence through technology</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/smart-blind-shoes">GitHub Repository</a></li>
+                        <li><a href="docs/README.md">Documentation</a></li>
+                        <li><a href="docs/API.md">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>For inquiries and collaboration opportunities</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Blind Shoes Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+</html>
+
