@@ -163,11 +163,23 @@ Sensor Data → Arduino Processing → Haptic Feedback
 - **System Controls**: Adjust operation mode and sensitivity
 - **Emergency Button**: Trigger emergency alert (simulated)
 
+### Arduino Simulation
+
+The Arduino simulation files are located in the `arduino-simulation/` directory:
+
+- **sketch.ino**: Main Arduino code for Smart Blind Shoes
+- **diagram.json**: Wokwi circuit diagram configuration
+- **wokwi.toml**: Wokwi simulator configuration
+
+To run the simulation:
+1. Open [Wokwi Simulator](https://wokwi.com/projects/449468602181139457)
+2. Or upload the files from `arduino-simulation/` to Wokwi
+
 ### Connecting Real Hardware
 
 To connect actual Arduino hardware:
 
-1. Upload the Arduino sketch to your device
+1. Upload `arduino-simulation/sketch.ino` to your Arduino device
 2. Ensure Serial communication is enabled
 3. Modify `src/js/app.js` to read from Serial port instead of simulation
 4. Use Web Serial API for browser-to-Arduino communication
@@ -206,6 +218,11 @@ To connect actual Arduino hardware:
 smart-blind-shoes/
 ├── index.html              # Main HTML file
 ├── README.md              # This file
+├── arduino-simulation/    # Arduino hardware simulation
+│   ├── sketch.ino        # Main Arduino sketch
+│   ├── diagram.json      # Wokwi circuit diagram
+│   ├── wokwi.toml        # Wokwi configuration
+│   └── README.md         # Simulation documentation
 ├── docs/                  # Documentation
 │   ├── README.md         # Detailed documentation
 │   ├── API.md            # API reference
