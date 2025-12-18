@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Reference - Smart Blind Shoes</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <style>
+        .api-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+        }
+        
+        .api-header {
+            margin-bottom: var(--spacing-3xl);
+            text-align: center;
+        }
+        
+        .api-header h1 {
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .api-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+        
+        .api-section h2 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--border);
+            color: var(--text-primary);
+        }
+        
+        .api-section h3 {
+            font-size: var(--font-size-2xl);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+        }
+        
+        .api-section h4 {
+            font-size: var(--font-size-xl);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .code-block {
+            background: #1D1D1F;
+            color: #E5E5E7;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin: var(--spacing-md) 0;
+            font-family: 'Courier New', monospace;
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+        
+        .code-block code {
+            color: #E5E5E7;
+        }
+        
+        .code-block .keyword {
+            color: #FF6B6B;
+        }
+        
+        .code-block .string {
+            color: #4ECDC4;
+        }
+        
+        .code-block .number {
+            color: #FFE66D;
+        }
+        
+        .code-block .comment {
+            color: #86868B;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        table th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        table tr:hover {
+            background: var(--surface);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            color: var(--primary);
+            margin-right: var(--spacing-xs);
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(88, 86, 214, 0.1) 100%);
+            border-left: 4px solid var(--primary);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .warning-box {
+            background: rgba(255, 149, 0, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .toc {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: var(--spacing-3xl);
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            padding: var(--spacing-xs) 0;
+        }
+        
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .toc a:hover {
+            color: var(--primary);
+            padding-left: var(--spacing-sm);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: var(--spacing-xl);
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="#007AFF"/>
+                            <path d="M16 8L20 14H24L18 20L20 26L16 22L12 26L14 20L8 14H12L16 8Z" fill="white"/>
+                        </svg>
+                        <span>Smart Shoes</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#demo">Dashboard</a></li>
+                    <li><a href="https://wokwi.com/projects/449468602181139457" target="_blank">Live Demo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="api-container">
+        <a href="../index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="api-header">
+            <h1>API Reference</h1>
+            <p class="section-subtitle">Complete API documentation for Smart Blind Shoes system</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#arduino-api">Arduino Serial API</a></li>
+                <li><a href="#web-api">Web Dashboard API</a></li>
+                <li><a href="#data-structures">Data Structures</a></li>
+                <li><a href="#examples">Integration Examples</a></li>
+                <li><a href="#error-handling">Error Handling</a></li>
+            </ul>
+        </div>
+
+        <section id="overview" class="api-section">
+            <h2>Overview</h2>
+            <p>The Smart Blind Shoes system uses JSON-based serial communication between the Arduino hardware and the web dashboard. The API is designed to be simple, efficient, and real-time.</p>
+            
+            <div class="info-box">
+                <strong>Communication Protocol:</strong><br>
+                Format: JSON | Baud Rate: 9600 | Update Frequency: ~10Hz (100ms intervals) | Encoding: UTF-8
+            </div>
+        </section>
+
+        <section id="arduino-api" class="api-section">
+            <h2>Arduino Serial API</h2>
+            
+            <h3>Output Format</h3>
+            <p>The Arduino continuously outputs sensor data and system status in JSON format via Serial.</p>
+            
+            <h4>Sensor Data Output</h4>
+            <div class="code-block">
+<code>{
+  "sensors": {
+    "left": 150,
+    "center": 200,
+    "right": 180,
+    "down": 100
+  },
+  "zones": {
+    "left": "WARN",
+    "center": "CLEAR",
+    "right": "WARN",
+    "down": "CLEAR"
+  },
+  "closest": {
+    "distance": 150,
+    "sensor": "left",
+    "zone": "WARN"
+  },
+  "status": {
+    "battery": 85,
+    "steps": 1234,
+    "mode": 0,
+    "sensitivity": 50,
+    "system": "ACTIVE"
+  },
+  "haptic": {
+    "left": 128,
+    "right": 64
+  },
+  "timestamp": 1705312200000
+}</code>
+            </div>
+
+            <h4>Field Descriptions</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Range</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>sensors.left</code></td>
+                        <td>integer</td>
+                        <td>20-400</td>
+                        <td>Distance in cm from left sensor</td>
+                    </tr>
+                    <tr>
+                        <td><code>sensors.center</code></td>
+                        <td>integer</td>
+                        <td>20-400</td>
+                        <td>Distance in cm from center sensor</td>
+                    </tr>
+                    <tr>
+                        <td><code>sensors.right</code></td>
+                        <td>integer</td>
+                        <td>20-400</td>
+                        <td>Distance in cm from right sensor</td>
+                    </tr>
+                    <tr>
+                        <td><code>sensors.down</code></td>
+                        <td>integer</td>
+                        <td>50-150</td>
+                        <td>Distance in cm from downward sensor</td>
+                    </tr>
+                    <tr>
+                        <td><code>zones.*</code></td>
+                        <td>string</td>
+                        <td>CLEAR/WARN/ALERT/CRITICAL</td>
+                        <td>Zone classification for each sensor</td>
+                    </tr>
+                    <tr>
+                        <td><code>status.battery</code></td>
+                        <td>integer</td>
+                        <td>0-100</td>
+                        <td>Battery level percentage</td>
+                    </tr>
+                    <tr>
+                        <td><code>status.mode</code></td>
+                        <td>integer</td>
+                        <td>0-2</td>
+                        <td>Operation mode (0=Normal, 1=Sensitive, 2=Aggressive)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Zone Classifications</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zone</th>
+                        <th>Distance Range</th>
+                        <th>Description</th>
+                        <th>Haptic Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge">CLEAR</span></td>
+                        <td>&gt; 150cm</td>
+                        <td>Safe distance, no obstacles</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">WARN</span></td>
+                        <td>80-150cm</td>
+                        <td>Obstacle detected, caution advised</td>
+                        <td>Low intensity (100-150 PWM)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">ALERT</span></td>
+                        <td>30-80cm</td>
+                        <td>Close obstacle, immediate attention</td>
+                        <td>Medium intensity (150-200 PWM)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">CRITICAL</span></td>
+                        <td>&lt; 30cm</td>
+                        <td>Very close obstacle, stop immediately</td>
+                        <td>High intensity (200-255 PWM) + Buzzer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="web-api" class="api-section">
+            <h2>Web Dashboard API</h2>
+            
+            <h3>SmartShoesSimulator Class</h3>
+            <p>Main class for simulating sensor data and managing dashboard state.</p>
+            
+            <h4>Methods</h4>
+            
+            <div class="code-block">
+<code><span class="comment">// Generate realistic sensor data</span>
+simulator.generateSensorData();
+
+<span class="comment">// Update metrics (steps, battery, speed)</span>
+simulator.updateMetrics();
+
+<span class="comment">// Get current sensor data</span>
+<span class="keyword">const</span> data = simulator.getSensorData();
+
+<span class="comment">// Set operation mode</span>
+simulator.setMode(<span class="number">1</span>); <span class="comment">// 0=Normal, 1=Sensitive, 2=Aggressive</span>
+
+<span class="comment">// Set sensitivity</span>
+simulator.setSensitivity(<span class="number">75</span>); <span class="comment">// 0-100</span>
+
+<span class="comment">// Trigger emergency</span>
+simulator.triggerEmergency();</code>
+            </div>
+
+            <h3>Dashboard Class</h3>
+            <p>Manages UI updates and chart rendering.</p>
+            
+            <div class="code-block">
+<code><span class="comment">// Update all displays</span>
+dashboard.updateMetrics();
+dashboard.updateSensors();
+dashboard.updateCharts();
+
+<span class="comment">// Change mode</span>
+dashboard.changeMode(<span class="number">1</span>);
+
+<span class="comment">// Update sensitivity</span>
+dashboard.updateSensitivity(<span class="number">75</span>);</code>
+            </div>
+        </section>
+
+        <section id="data-structures" class="api-section">
+            <h2>Data Structures</h2>
+            
+            <h3>SensorData Interface</h3>
+            <div class="code-block">
+<code><span class="keyword">interface</span> SensorData {
+  sensors: {
+    left: <span class="keyword">number</span>;      <span class="comment">// 20-400 cm</span>
+    center: <span class="keyword">number</span>;    <span class="comment">// 20-400 cm</span>
+    right: <span class="keyword">number</span>;     <span class="comment">// 20-400 cm</span>
+    down: <span class="keyword">number</span>;      <span class="comment">// 50-150 cm</span>
+  };
+  zones: {
+    left: Zone;
+    center: Zone;
+    right: Zone;
+    down: Zone;
+  };
+  status: {
+    battery: <span class="keyword">number</span>;      <span class="comment">// 0-100</span>
+    steps: <span class="keyword">number</span>;        <span class="comment">// 0+</span>
+    mode: <span class="keyword">number</span>;        <span class="comment">// 0-2</span>
+    sensitivity: <span class="keyword">number</span>;  <span class="comment">// 0-100</span>
+    system: <span class="string">'ACTIVE'</span> | <span class="string">'STANDBY'</span> | <span class="string">'ERROR'</span>;
+  };
+  haptic: {
+    left: <span class="keyword">number</span>;   <span class="comment">// 0-255 PWM</span>
+    right: <span class="keyword">number</span>;  <span class="comment">// 0-255 PWM</span>
+  };
+  timestamp: <span class="keyword">number</span>;  <span class="comment">// Unix timestamp (ms)</span>
+}</code>
+            </div>
+        </section>
+
+        <section id="examples" class="api-section">
+            <h2>Integration Examples</h2>
+            
+            <h3>Reading Serial Data</h3>
+            <div class="code-block">
+<code><span class="comment">// Request serial port access</span>
+<span class="keyword">const</span> port = <span class="keyword">await</span> navigator.serial.requestPort();
+<span class="keyword">await</span> port.open({ baudRate: <span class="number">9600</span> });
+
+<span class="keyword">const</span> reader = port.readable.getReader();
+<span class="keyword">const</span> decoder = <span class="keyword">new</span> TextDecoder();
+
+<span class="keyword">while</span> (<span class="keyword">true</span>) {
+  <span class="keyword">const</span> { value, done } = <span class="keyword">await</span> reader.read();
+  <span class="keyword">if</span> (done) <span class="keyword">break</span>;
+  
+  <span class="keyword">const</span> text = decoder.decode(value);
+  <span class="keyword">const</span> lines = text.split(<span class="string">'\n'</span>);
+  
+  <span class="keyword">for</span> (<span class="keyword">const</span> line <span class="keyword">of</span> lines) {
+    <span class="keyword">if</span> (line.trim().startsWith(<span class="string">'{'</span>)) {
+      <span class="keyword">try</span> {
+        <span class="keyword">const</span> data = JSON.parse(line);
+        updateDashboard(data);
+      } <span class="keyword">catch</span> (e) {
+        console.error(<span class="string">'Parse error:'</span>, e);
+      }
+    }
+  }
+}</code>
+            </div>
+
+            <h3>Processing Sensor Data</h3>
+            <div class="code-block">
+<code><span class="keyword">function</span> processSensorData(data) {
+  <span class="comment">// Update sensor displays</span>
+  document.getElementById(<span class="string">'sensor-left'</span>).textContent = 
+    data.sensors.left + <span class="string">' cm'</span>;
+  
+  <span class="comment">// Update zone indicators</span>
+  updateZoneIndicator(<span class="string">'left'</span>, data.zones.left);
+  
+  <span class="comment">// Check for critical obstacles</span>
+  <span class="keyword">if</span> (data.closest.zone === <span class="string">'CRITICAL'</span>) {
+    triggerAlert(<span class="string">'Critical obstacle detected!'</span>);
+  }
+}</code>
+            </div>
+        </section>
+
+        <section id="error-handling" class="api-section">
+            <h2>Error Handling</h2>
+            
+            <h3>Serial Communication Errors</h3>
+            <div class="code-block">
+<code><span class="keyword">try</span> {
+  <span class="keyword">const</span> port = <span class="keyword">await</span> navigator.serial.requestPort();
+  <span class="comment">// ... communication code</span>
+} <span class="keyword">catch</span> (error) {
+  <span class="keyword">if</span> (error.name === <span class="string">'NotFoundError'</span>) {
+    console.error(<span class="string">'No serial port selected'</span>);
+  } <span class="keyword">else if</span> (error.name === <span class="string">'SecurityError'</span>) {
+    console.error(<span class="string">'Serial port access denied'</span>);
+  } <span class="keyword">else</span> {
+    console.error(<span class="string">'Serial error:'</span>, error);
+  }
+}</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>Best Practices:</strong><br>
+                • Always validate data before processing<br>
+                • Handle errors gracefully - don't crash on invalid data<br>
+                • Use non-blocking code - avoid delay() in Arduino<br>
+                • Implement timeouts for serial communication<br>
+                • Test with various scenarios (hallway, open space, obstacles)
+            </div>
+        </section>
+
+        <div class="info-box" style="margin-top: var(--spacing-3xl);">
+            <h3 style="margin-top: 0;">Additional Resources</h3>
+            <p>
+                <strong>GitHub:</strong> <a href="https://github.com/UsmanovMahmudkhan/Iot-doc" target="_blank">View Repository</a><br>
+                <strong>Documentation:</strong> <a href="README.md">Full Documentation</a><br>
+                <strong>Live Demo:</strong> <a href="https://wokwi.com/projects/449468602181139457" target="_blank">Wokwi Simulation</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Smart Blind Shoes</h4>
+                    <p>Empowering independence through technology</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/UsmanovMahmudkhan/Iot-doc">GitHub Repository</a></li>
+                        <li><a href="README.md">Documentation</a></li>
+                        <li><a href="api.html">API Reference</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Blind Shoes Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

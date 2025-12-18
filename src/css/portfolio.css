@@ -1,11 +1,84 @@
 /* Portfolio Page Styles */
 
+/* Scroll Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
 .portfolio-hero {
     padding: var(--spacing-3xl) 0;
     text-align: center;
     background: linear-gradient(180deg, #F5F5F7 0%, #FFFFFF 100%);
     position: relative;
     overflow: hidden;
+}
+
+/* Animated Background Particles */
+.portfolio-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(88, 86, 214, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 122, 255, 0.05) 0%, transparent 70%);
+    animation: backgroundPulse 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
 }
 
 .portfolio-hero::before {
@@ -25,12 +98,95 @@
     z-index: 1;
 }
 
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .avatar-large {
-    margin: 0 auto var(--spacing-lg);
+    margin: 0 auto var(--spacing-xl);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.avatar-image-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    display: block;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 5px solid white;
+    box-shadow: 0 10px 40px rgba(0, 122, 255, 0.25),
+                0 0 0 1px rgba(0, 122, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    animation: avatarFloat 3s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.avatar-image:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.4),
+                0 0 0 4px rgba(0, 122, 255, 0.2);
+    animation-play-state: paused;
+}
+
+.avatar-border {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.15) 0%, rgba(88, 86, 214, 0.15) 100%);
+    z-index: 1;
+    pointer-events: none;
+    animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.5;
+    }
 }
 
 .avatar-large svg {
     filter: drop-shadow(0 8px 24px rgba(0, 122, 255, 0.2));
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
 }
 
 .role-title {
@@ -64,6 +220,26 @@
     font-size: var(--font-size-sm);
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    transition: all 0.2s ease;
+    animation: badgePulse 1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.05s);
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 122, 255, 0.5);
+    }
+}
+
+.badge:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.5);
+    animation-play-state: paused;
 }
 
 /* Work Sections */
@@ -90,6 +266,42 @@
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
     flex-shrink: 0;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.custom-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4);
+}
+
+.custom-icon:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.custom-icon svg {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.25s ease;
+}
+
+.custom-icon:hover svg {
+    transform: scale(1.1);
 }
 
 .work-header h3 {
@@ -114,12 +326,30 @@
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: 0 2px 8px var(--shadow);
-    transition: var(--transition);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 122, 255, 0.1), transparent);
+    transition: left 0.3s ease;
+}
+
+.work-card:hover::before {
+    left: 100%;
 }
 
 .work-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 122, 255, 0.2);
+    border: 1px solid rgba(0, 122, 255, 0.2);
 }
 
 .work-card h4 {
@@ -191,6 +421,15 @@
     padding: var(--spacing-lg);
     background: #1D1D1F;
     overflow-x: auto;
+    position: relative;
+    border-left: 4px solid var(--primary);
+    transition: all 0.2s ease;
+}
+
+.code-block:hover {
+    border-left-color: var(--secondary);
+    box-shadow: 0 4px 16px rgba(0, 122, 255, 0.2);
+    transform: translateX(4px);
 }
 
 .code-block pre {
@@ -218,12 +457,32 @@
     background: white;
     border-radius: var(--radius-lg);
     box-shadow: 0 2px 8px var(--shadow);
-    transition: var(--transition);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+    transform-origin: bottom;
+}
+
+.feature-item:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
 }
 
 .feature-item:hover {
-    transform: translateX(8px);
-    box-shadow: 0 4px 16px var(--shadow-lg);
+    transform: translateX(12px);
+    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.2);
 }
 
 .feature-number {
@@ -331,12 +590,30 @@
     padding: var(--spacing-2xl);
     color: white;
     text-align: center;
-    transition: var(--transition);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.project-link-card:hover::before {
+    transform: scale(1);
 }
 
 .project-link-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 122, 255, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 122, 255, 0.4);
 }
 
 .project-link-card.secondary {
@@ -379,6 +656,28 @@
     padding: var(--spacing-2xl);
     background: linear-gradient(135deg, #F5F5F7 0%, #FFFFFF 100%);
     border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 122, 255, 0.1), transparent);
+    animation: statsShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes statsShimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
 }
 
 .stat-item {
@@ -393,6 +692,22 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-sm);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.stat-item:hover .stat-value {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.stat-item {
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
 }
 
 .stat-label {
@@ -459,12 +774,31 @@
     border-radius: var(--radius-lg);
     box-shadow: 0 2px 8px var(--shadow);
     position: relative;
-    transition: var(--transition);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.achievement-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+    transform-origin: bottom;
+}
+
+.achievement-item:hover::after {
+    transform: scaleY(1);
+    transform-origin: top;
 }
 
 .achievement-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px var(--shadow-lg);
+    transform: translateY(-6px) translateX(4px);
+    box-shadow: 0 12px 32px rgba(0, 122, 255, 0.25);
 }
 
 .achievement-number {
@@ -534,7 +868,27 @@
 .timeline-marker.active {
     background: var(--primary);
     box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.2);
-    animation: pulse 2s infinite;
+    animation: pulse 1s infinite, markerGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes markerGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.2),
+                    0 0 20px rgba(0, 122, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 122, 255, 0.1),
+                    0 0 30px rgba(0, 122, 255, 0.5);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .timeline-content {
@@ -542,11 +896,29 @@
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: 0 2px 8px var(--shadow);
-    transition: var(--transition);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 122, 255, 0.05), transparent);
+    transition: width 0.25s ease;
+    border-radius: var(--radius-lg);
+}
+
+.timeline-content:hover::before {
+    width: 100%;
 }
 
 .timeline-content:hover {
-    box-shadow: 0 4px 16px var(--shadow-lg);
+    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.2);
+    transform: translateX(8px);
 }
 
 .timeline-content h4 {

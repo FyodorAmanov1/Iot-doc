@@ -119,6 +119,132 @@ body {
     padding: var(--spacing-3xl) 0;
     text-align: center;
     background: linear-gradient(180deg, #F5F5F7 0%, #FFFFFF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Sensor Wave Animation - Represents ultrasonic sensors */
+.sensor-wave {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 122, 255, 0.3);
+    animation: sensorPulse 3s ease-out infinite;
+}
+
+.sensor-left {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.sensor-center {
+    width: 120px;
+    height: 120px;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 1s;
+}
+
+.sensor-right {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+@keyframes sensorPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Navigation Path Animation - Represents safe walking path */
+.navigation-path {
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 122, 255, 0.3) 20%, 
+        rgba(0, 122, 255, 0.6) 50%, 
+        rgba(0, 122, 255, 0.3) 80%, 
+        transparent 100%);
+    border-radius: 2px;
+    animation: pathFlow 4s ease-in-out infinite;
+}
+
+@keyframes pathFlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(20px);
+    }
+}
+
+/* Obstacle Detection Animation - Shows obstacles being detected */
+.obstacle-detection {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 59, 48, 0.2) 0%, transparent 70%);
+    animation: obstacleAlert 2s ease-in-out infinite;
+}
+
+.obstacle-1 {
+    top: 40%;
+    right: 25%;
+    animation-delay: 0.5s;
+}
+
+.obstacle-2 {
+    top: 60%;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+
+@keyframes obstacleAlert {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+    }
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
@@ -757,6 +883,17 @@ body {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     margin: 0 auto var(--spacing-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+    margin: 0 auto var(--spacing-md);
 }
 
 .team-card h3 {
@@ -840,6 +977,20 @@ body {
     
     .hero-subtitle {
         font-size: var(--font-size-xl);
+    }
+    
+    .sensor-wave {
+        opacity: 0.5;
+    }
+    
+    .navigation-path {
+        width: 80%;
+        left: 10%;
+    }
+    
+    .obstacle-detection {
+        width: 40px;
+        height: 40px;
     }
     
     .workflow {
